@@ -34,5 +34,3 @@ class LinkedListBasic:
        else:
         print("index",i,"값이 범위를 벗어 났습니다.")
   def append(self,newItem):
-    
-
