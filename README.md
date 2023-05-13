@@ -34,3 +34,29 @@ class LinkedListBasic:
        else:
         print("index",i,"값이 범위를 벗어 났습니다.")
   def append(self,newItem):
+
+def mergeSort(A, p:int, r:int):   
+    if p < r:
+        q = (p+r)//2 
+        mergeSort(A, p, q)
+        mergeSort(A, q+1, r)
+        merge(A,p,q,r)
+        
+def merge(A, p:int, r:int):  #(A,0,len(A)-1)이 들어갈 값
+    tmp = []
+    q = (p+r)//2
+    while p < q and q < r: 
+        if A[p] < A[p+q]:
+            tmp[p] = A[p]
+            p += 1; q +=1
+        else:
+            tmp[p] = A[p+q]
+            p += 1; q += 1
+위 코드의 문제점
+merge 함수의 파라미터 개수가 맞지 않습니다. merge(A, p, r) 대신 merge(A, p, q, r)로 수정해야 합니다.
+
+merge 함수에서 tmp 리스트를 초기화하지 않았습니다. 따라서 tmp 리스트에 값을 추가하려고 할 때 IndexError가 발생할 것입니다. tmp = []와 같이 리스트를 초기화해야 합니다.
+
+merge 함수에서 p와 q는 왼쪽 리스트의 인덱스이지만, q와 r은 오른쪽 리스트의 인덱스입니다. 따라서 tmp 리스트에 값을 추가할 때 p+q 대신 q+1을 사용해야 합니다.
+
+merge 함수에서 비교 연산자가 잘못 사용되었습니다. if A[p] < A[p+q]: 대신 if A[p] < A[q+1]:으로 수정해야 합니다.
