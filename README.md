@@ -272,3 +272,5 @@ df['shellSort'] = pd.DataFrame(SHtimes)
 df.mean().plot(kind='bar')
 
 plt.show()
+
+#이진검색트리
